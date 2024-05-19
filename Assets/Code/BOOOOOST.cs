@@ -19,14 +19,20 @@ public class BOOOOOST : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-        other.GetComponent<FirstPersonMovement>().runSpeed = sbeest;
-        other.GetComponent<Jump>().jumpStrength = junp;
+        if (other.transform.tag == "Player"){
+            other.GetComponent<FirstPersonMovement>().runSpeed = sbeest;
+            other.GetComponent<Jump>().jumpStrength = junp;
+        }
+        
         
     }
 
     private void OnTriggerExit(Collider other) {
-        other.GetComponent<FirstPersonMovement>().runSpeed = 5;
-        other.GetComponent<Jump>().jumpStrength = 4;
+        if (other.transform.tag == "Player"){
+            other.GetComponent<FirstPersonMovement>().runSpeed = 5;
+            other.GetComponent<Jump>().jumpStrength = 4;
+        }
+        
     }
 
 
