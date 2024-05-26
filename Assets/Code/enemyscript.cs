@@ -5,10 +5,15 @@ using UnityEngine;
 public class enemyscript : MonoBehaviour
 {
     public GameObject player;
+
     public float health = 2.5f;
     public float speed = 3f;
     public float damage = 2;
     // Start is called before the first frame update
+
+    void Start(){
+        player = GameObject.Find("Player");
+    }
 
     // Update is called once per frame
     void Update()
