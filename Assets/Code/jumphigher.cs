@@ -19,11 +19,17 @@ public class jumphigher : MonoBehaviour
     }
     private void OnTriggerEnter(Collider nhynikuh)
     {
-        nhynikuh.gameObject.GetComponent<Jump>().jumpStrength = JumpStrength;
+        if(nhynikuh.transform.tag == "Player"){
+            nhynikuh.gameObject.GetComponent<Jump>().jumpStrength *= JumpStrength;
+        }
+        
     }
     private void OnTriggerExit(Collider scnirsm)
     {
-        scnirsm.gameObject.GetComponent<Jump>().jumpStrength = 4;
+        if(scnirsm.transform.tag == "Player"){
+            scnirsm.gameObject.GetComponent<Jump>().jumpStrength /= JumpStrength;
+        }
+        
     }
 }
 
