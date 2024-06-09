@@ -5,13 +5,16 @@ using UnityEngine;
 public class missile : MonoBehaviour
 {
     public float Speed;
-    public GameObject flireball;
-    // Start is called before the first frame updat
+    // Start is called 
     // Update is called once per frame
+    void Start()
+    {
+        Destroy(gameObject, 10);
+    }
     void Update()
     { 
         transform.position += transform.forward * Speed * Time.deltaTime;
-        Destroy(flireball, 10);
+        
 
 
     }
