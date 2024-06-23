@@ -4,33 +4,28 @@ using UnityEngine;
 
 public class playeranim : MonoBehaviour
 {
-    private Animator anim;
+    public Animator anim;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        anim = GetComponent<Animator>();
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
-            anim.SetBool("walk", true);
+        // if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)){
+        //     // anim.SetBool("walk", true);
+        //     anim.SetFloat("y", anim.GetFloat("y") + Time.deltaTime);
+        // }
+        // else{
+        //     // anim.SetBool("walk", false);
+        //     anim.SetFloat("y", anim.GetFloat("y") - Time.deltaTime);
+        // }
 
-        }
-        else{
-            anim.SetBool("walk", false);
-        }
+        anim.SetFloat("x", Input.GetAxis("Horizontal"), 0.1f, Time.deltaTime);
+        anim.SetFloat("y", Input.GetAxis("Vertical"), 0.1f, Time.deltaTime);
 
         if(Input.GetKey(KeyCode.Space)){
             anim.SetBool("jump", true);
-
-
         }
-
-
-
     }
 
     private void OnCollisionEnter(Collision other){
